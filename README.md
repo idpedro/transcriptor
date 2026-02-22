@@ -82,6 +82,37 @@ uv run python -m transcriber --list-models
 uv run python -m transcriber video.mp4 --device cpu --compute-type int8
 ```
 
+## Performance
+
+Benchmarks com **AMD Ryzen 7 5700G, 32GB RAM, RTX 3060 12GB**, modelo `large-v3-turbo`, `float16`:
+
+```
+$ uv run python -m transcriber preview-controls.mp4 --lang pt --format srt
+Modelo: large-v3-turbo | Device: cuda | Compute: float16
+Modelo carregado.
+──── preview-controls.mp4 ────
+Duração: 11min 26s
+  Transcrevendo... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:17
+Salvo em: preview-controls.srt
+11min 26s de áudio em 20s — 34x realtime
+```
+
+```
+$ uv run python -m transcriber 2026-02-21\ 14-22-10.mp4 --lang pt --format srt
+Modelo: large-v3-turbo | Device: cuda | Compute: float16
+Modelo carregado.
+──── 2026-02-21 14-22-10.mp4 ────
+Duração: 1h 55min 19s
+  Transcrevendo... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:03:09
+Salvo em: 2026-02-21 14-22-10.srt
+1h 55min 19s de áudio em 4min 18s — 27x realtime
+```
+
+| Duração do áudio | Tempo de processamento | Velocidade |
+|------------------|----------------------|------------|
+| 11min 26s | 20s | 34x realtime |
+| 1h 55min 19s | 4min 18s | 27x realtime |
+
 ## Modelos
 
 | Modelo | Tamanho | VRAM estimada | Observação |

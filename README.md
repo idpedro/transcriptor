@@ -159,3 +159,7 @@ mpv --sub-file="legenda.srt" video.mp4
 ## Privacidade
 
 Este projeto roda 100% local. Nenhum dado é enviado para servidores externos. Não requer API key nem conta em nenhum serviço. Seus áudios e transcrições permanecem na sua máquina.
+
+---
+
+Projeto criado usando [Claude Code](https://claude.ai/code) com base no [prompt.md](prompt.md).
